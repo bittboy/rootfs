@@ -79,7 +79,7 @@ ifneq ($(BR2_PACKAGE_LIBCEDARC_OPENMAX),y)
 endif
 
 ifeq ($(BR2_PACKAGE_LIBCEDARC_OPENMAX),y)
-	LIBCEDARC_INSTALL_TARGET_CMDS += cp '$(@D)/library/$(LIBCEDARC_ARCHLIB)/libOmxCore.so' '$(TARGET_DIR)/usr/lib/libOMX_Core.so';
+	LIBCEDARC_INSTALL_TARGET_CMDS += cp '$(@D)/openmax/omxcore/.libs/libOmxCore.so' '$(TARGET_DIR)/usr/lib/libOMX_Core.so';
 endif
 
 
