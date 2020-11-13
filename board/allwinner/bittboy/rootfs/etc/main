@@ -9,7 +9,7 @@ START=/mnt/autoexec.sh
 echo -e "\e[?1c" #replace 1 with 3 to see text
 #/mnt/kernel/setcolors /mnt/kernel/colors
 
-modprobe r61520fb.ko
+modprobe r61520fb.ko flip=1
 
 #Check if fat32 is flagged as "dirty", and if so unmount, repair, remount
 if dmesg | grep "mmcblk0p4" > /dev/null;  then

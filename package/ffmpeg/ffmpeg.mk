@@ -41,6 +41,7 @@ FFMPEG_CONF_OPTS = \
 	--disable-mipsdsp \
 	--disable-mipsdspr2 \
 	--disable-msa \
+	--enable-omx \
 	--enable-hwaccels \
 	--disable-cuda \
 	--disable-cuvid \
@@ -56,7 +57,7 @@ FFMPEG_CONF_OPTS = \
 	--disable-symver \
 	--disable-doc
 
-FFMPEG_DEPENDENCIES += host-pkgconf
+FFMPEG_DEPENDENCIES += host-pkgconf libcedarc
 
 ifeq ($(BR2_PACKAGE_FFMPEG_GPL),y)
 FFMPEG_CONF_OPTS += --enable-gpl
@@ -276,8 +277,6 @@ ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
 FFMPEG_CONF_OPTS += --enable-mmal --enable-omx --enable-omx-rpi \
 	--extra-cflags=-I$(STAGING_DIR)/usr/include/IL
 FFMPEG_DEPENDENCIES += rpi-userland
-else
-FFMPEG_CONF_OPTS += --disable-mmal --disable-omx --disable-omx-rpi
 endif
 
 # To avoid a circular dependency only use opencv if opencv itself does

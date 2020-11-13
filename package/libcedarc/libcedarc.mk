@@ -78,4 +78,9 @@ ifneq ($(BR2_PACKAGE_LIBCEDARC_OPENMAX),y)
 	LIBCEDARC_INSTALL_TARGET_CMDS += rm '$(TARGET_DIR)/usr/lib/libOmxVenc.so';
 endif
 
+ifeq ($(BR2_PACKAGE_LIBCEDARC_OPENMAX),y)
+	LIBCEDARC_INSTALL_TARGET_CMDS += cp '$(@D)/library/$(LIBCEDARC_ARCHLIB)/libOmxCore.so' '$(TARGET_DIR)/usr/lib/libOMX_Core.so';
+endif
+
+
 $(eval $(autotools-package))
